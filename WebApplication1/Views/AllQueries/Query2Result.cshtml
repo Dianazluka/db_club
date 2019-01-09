@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebApplication1.Classes.Query2Data>
+@{
+    ViewBag.Title = "Результаты запроса";
+}
+<h2>@ViewBag.Title</h2>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            Номер спортсмен
+        </th>
+        <th>
+            Возраст
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.sportsman_ID
+            </td>
+            <td>
+                @item.age
+            </td>
+            
+        </tr>
+    }
+</table>

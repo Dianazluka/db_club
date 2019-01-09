@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebApplication1.Models.Participation>
+
+@{
+    ViewBag.Title = "Участие";
+}
+
+@using (Html.BeginForm("Index", "Participation", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="col-md-10">
+            <label for="query">
+                <input type="text" name="search" class="form-control" />
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Найти" class="btn btn-default" />
+        </div>
+    </div>
+}
+    <p>
+        @Html.ActionLink("Создать новую запись", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Спортсмен
+            </th>
+            <th>
+                Соревнование
+            </th>
+            <th>
+                Результат
+            </th>
+            <th>
+                Место
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.ActionLink(Html.DisplayFor(modelItem => item.Sportsman.surname).ToString(), "Details", "Executors", new { id = item.p_sportsman_ID }, null)
+            </td>
+            <td>
+                @Html.ActionLink(Html.DisplayFor(modelItem => item.Competition.rank).ToString(), "Details", "Executors", new { id = item.p_сompetition_ID }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.result)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.place)
+            </td>
+
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new { id = item.participation_ID }) |
+                @Html.ActionLink("Подробно", "Details", new { id = item.participation_ID }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.participation_ID })
+            </td>
+        </tr>
+        }
+
+    </table>

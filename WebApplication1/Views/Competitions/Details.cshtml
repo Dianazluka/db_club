@@ -1,0 +1,42 @@
+﻿@model WebApplication1.Models.Competition
+
+@{
+    ViewBag.Title = "Подробно";
+}
+
+
+
+<div>
+    <h4>Competition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.date_competition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_competition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.number_participants)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.number_participants)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rank)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить запись", "Edit", new { id = Model.сompetition_ID }) |
+    @Html.ActionLink("Вернуться к записям", "Index")
+</p>
